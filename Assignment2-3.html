@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" media="screen" href="style.css" >
+<script type="text/javascript" language="JavaScript">
+	function add(obj)
+		{
+			var events = prompt("What do you want to do?", "");
+			var tnode1=document.createTextNode(events);
+			var now = new Date();
+			var tnode2=document.createTextNode("  Item add on ("+now.getMonth()+"/"+now.getDate()+"/"+(now.getYear()+1900)+")");
+			newchild = obj.cloneNode(false);
+			newchild.setAttribute("onclick", "deselect(this)");
+			newchild.setAttribute("class", "o");
+			newchild.appendChild(tnode1)
+			newchild.appendChild(tnode2)
+			obj.parentNode.appendChild(newchild);
+		}
+	function deselect(obj)
+		{
+			if (obj.getAttribute("class")=="undone")
+				{
+					obj.setAttribute("class", "done");
+				}
+			else
+				{
+					obj.setAttribute("class", "undone");
+				}
+		}
+</script>
+</head>
+<body>
+	<center>
+		<h1>Todo List Generator</h1>
+	</center>
+		<div>
+			<ul>
+        <li>Click <span>"Add more"</span> to add new item.(New item will be followed with a time stamp)</li>
+        <li class="extra" style="color:red">Click <span>existed item</span> to mark it as done or undone</li>
+				<li class = "undone" onclick="javascript:add(this)"><span>Add more...</span></li>
+				<li class = "undone" onclick="javascript:deselect(this)">Wash socks</li>
+				<li class = "undone" onclick="javascript:deselect(this)">Shopping</li>
+				<li class = "undone" onclick="javascript:deselect(this)">Web assignment</li>
+			</ul>
+		</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.undone{ color: black; }
+.done{ text-decoration: line-through; background-color: #ffdddd;}
+span {
+    color: blue;
+    border: 1px solid black;
+}
+.extra span {
+    color: inherit;
+}
